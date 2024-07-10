@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Blocksatz mit linksbündiger letzter Zeile</title>
+    <style>
+        .justified {
+            text-align: justify;
+            /* das hört sich so gut an, aber das können die Browser nicht wirklich */
+            text-justify: inter-word;
+            /* Begrenzt die Breite für bessere Lesbarkeit */
+            max-width: 600px;
+            /* Zentriert den Textblock */
+            margin: 0 auto;
+
+            /* die Linksbündige Zentrierung der letzten Zeile funktioniert allein gut */
+
+        }
+
+        .with_last_centered {
+            /* zentriert die letzte Zeile */
+            text-align-last: center;
+        }
+
+        .with_last_justified {
+            /* letzte Zeile im erzwungenen Blocksatz */
+            text-align-last: justify;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="justified">
+        <p>Dies ist ein längerer Absatz, der im Blocksatz ausgerichtet ist, um eine gleichmäßige Ausrichtung sowohl am
+            linken als auch am rechten Rand zu gewährleisten. Blocksatz kann die Lesbarkeit von Text in gedruckten
+            Dokumenten und auf Webseiten verbessern, indem er ein sauberes und ordentliches Erscheinungsbild bietet. Es
+            ist wichtig, die Wortabstände sorgfältig zu justieren, damit der Text nicht zu gedrängt oder zu locker
+            erscheint. Die Herausforderung besteht darin, ein angenehmes Leseerlebnis zu schaffen, ohne die Leser zu
+            ermüden. Die letzte Zeile dieses Absatzes ist linksbündig, um den Absatz sauber abzuschließen und ein
+            optisch ansprechendes Layout zu gewährleisten.</p>
+    </div>
+
+    <div class="justified with_last_centered">
+        <p>Dies ist ein längerer Absatz, der im Blocksatz ausgerichtet ist, um eine gleichmäßige Ausrichtung sowohl am
+            linken als auch am rechten Rand zu gewährleisten. Blocksatz kann die Lesbarkeit von Text in gedruckten
+            Dokumenten und auf Webseiten verbessern, indem er ein sauberes und ordentliches Erscheinungsbild bietet. Es
+            ist wichtig, die Wortabstände sorgfältig zu justieren, damit der Text nicht zu gedrängt oder zu locker
+            erscheint. Die Herausforderung besteht darin, ein angenehmes Leseerlebnis zu schaffen, ohne die Leser zu
+            ermüden. Die letzte Zeile dieses Absatzes ist linksbündig, um den Absatz sauber abzuschließen und ein
+            optisch ansprechendes Layout zu gewährleisten.</p>
+    </div>
+
+    <div class="justified with_last_justified">
+        <p>Dies ist ein längerer Absatz, der im Blocksatz ausgerichtet ist, um eine gleichmäßige Ausrichtung sowohl am
+            linken als auch am rechten Rand zu gewährleisten. Blocksatz kann die Lesbarkeit von Text in gedruckten
+            Dokumenten und auf Webseiten verbessern, indem er ein sauberes und ordentliches Erscheinungsbild bietet. Es
+            ist wichtig, die Wortabstände sorgfältig zu justieren, damit der Text nicht zu gedrängt oder zu locker
+            erscheint. Die Herausforderung besteht darin, ein angenehmes Leseerlebnis zu schaffen, ohne die Leser zu
+            ermüden. Die letzte Zeile dieses Absatzes ist linksbündig, um den Absatz sauber abzuschließen und ein
+            optisch ansprechendes Layout zu gewährleisten.</p>
+    </div>
+
+</body>
+
+</html>
