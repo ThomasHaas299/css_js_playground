@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Img-Filter-Ani</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        div {
+            margin: 20px;
+        }
+
+        #img1 {
+            cursor: pointer;
+            filter: blur(6px);
+            transition: filter 1s;
+        }
+
+        #img1:hover {
+            filter: blur(0);
+            transition: filter 1s;
+        }
+
+        @keyframes huerotate {
+            from {
+                filter: hue-rotate(0deg);
+            }
+
+            to {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        #img2 {
+            animation: huerotate 10s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div><img id="img1" src="img/pineapple.jpg" alt="a pineapple"></div>
+
+    <div><img id="img2" src="img/pineapple.jpg" alt="a pineapple"></div>
+
+</body>
+
+</html>
