@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS Variables</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --color1: #990be6;
+            --color2: #d6a2a2;
+            --color3: #de5211;
+        }
+
+        body {
+            background-color: var(--color2);
+            color: var(--color1);
+        }
+
+        p {
+            border: 1px solid var(--color1);
+        }
+
+        button {
+            background-color: var(--color1);
+            color: var(--color2);
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 400px) {
+            :root {
+                /* color1 wird bei einer Seitenbreite unter 300px auf weiß gesetzt */
+                --color1: #ffffff;
+            }
+        }
+    </style>
+    <script>
+
+        function changeColors() {
+            document.documentElement.style.setProperty('--color2', '#a2d6a2');
+            document.documentElement.style.setProperty('--color1', '#de5211');
+            showColorValues();
+        }
+
+        function showColorValues() {
+            // document.documentElement ist nach DOM 3 der Standard für den Zugriff auf das Wurzelelement des Dokuments
+            document.getElementById('span_color1').innerText = getComputedStyle(document.documentElement).getPropertyValue('--color1');
+
+            // laut w3schools.com sollte es auch so gehen
+            document.querySelector('#span_color2').innerText = getComputedStyle(document.querySelector(':root')).getPropertyValue('--color2')
+        }
+
+        window.onload = function () {
+            showColorValues();
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h1>Verwendung von CSS-Variablen</h1>
+
+    <p>Die Textfarbe wird durch eine CSS-Variable gesteuert.</p>
+
+    <p>Color1 hat den Wert <span id="span_color1"></span>. Color2 hat den Wert <span id="span_color2"></span>.</p>
+
+    <p>Wenn die Farben noch nicht geändert sind, dann kann man auch noch die Veränderung durch das Media-Query sehen,
+        wenn man die Seite auf unter 400 px zusammenzieht.</p>
+
+    <button onclick="changeColors()">Farben ändern</button>
+
+</body>
+
+</html>
