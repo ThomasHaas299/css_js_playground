@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS String Methods</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --comment: #008000;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        div.box {
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin: 10px 0;
+            color: var(--comment);
+            border-left: 2px solid var(--comment);
+        }
+
+        p.code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            border-left: 2px solid #ff0000;
+            line-height: 1.2;
+        }
+
+        span.comment {
+            color: var(--comment);
+
+            /* ein schönes Beispiel für den Schachtelungs-Selektor */
+            &::before {
+                content: " // ";
+                font-weight: bold;
+            }
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            let str = "ABCDEFGabcdefg0123467";
+            document.getElementById("str_length").innerText = str.length;
+            document.getElementById("str_charAt").innerText = str.charAt(2);
+
+            document.getElementById("str_at1").innerText = str.at(2);
+            document.getElementById("str_at2").innerText = str.at(-1);
+
+            let arr = ["A", "B", "C", "a", "b", "c", "0", "1", "2",];
+            document.getElementById("arr_typeof").innerText = typeof arr;
+            document.getElementById("arr_length").innerText = arr.length;
+            document.getElementById("arr_isArray").innerText = Array.isArray(arr);
+
+
+            document.getElementById("arr_at1").innerText = arr.at(2);
+            document.getElementById("arr_at2").innerText = arr.at(-1);
+
+            document.getElementById("arr_sort1").innerText = arr.sort();
+            document.getElementById("arr_sort2").innerText = arr.sort((a, c) => Math.random() - 0.5);
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div class="box">
+        Im CSS ist ein schönes Beispiel für den Schachtelungs-Selektor zu sehen.
+    </div>
+
+    <h2>String</h2>
+
+    <p class="code">
+        let str = "ABCDEFGabcdefg0123467";<br>
+        str.length; <span class="comment" id="str_length"></span><br>
+        str.charAt(2); <span class="comment" id="str_charAt"></span>
+    </p>
+
+    <p>Seit ES 2022 gibt es auch <b>str.at()</b>. Das Ergebnis ist das Selbe wie bei str.charAt(), aber es werden auch
+        negative Argumente akzeptiert und verarbeitet:</p>
+
+    <p class="code">
+        str.at(2); <span class="comment" id="str_at1"></span><br>
+        str.at(-1); <span class="comment" id="str_at2"></span><br>
+    </p>
+
+    <h2>Array</h2>
+
+    <p class="code">
+        let arr = ["A", "B", "C", "a", "b", "c", "0", "1", "2", ];<br>
+        typeof arr; <span class="comment" id="arr_typeof"></span><br>
+        arr.length; <span class="comment" id="arr_length"></span><br>
+        Array.isArray(arr); <span class="comment" id="arr_isArray"></span><br>
+    </p>
+
+    <p>Analog zu String.at() gibt es auch Array.at(), mit der Möglichkeit eines negativen Arguments.</p>
+
+    <p class="code">
+        arr.at(2); <span class="comment" id="arr_at1"></span><br>
+        arr.at(-1); <span class="comment" id="arr_at2"></span><br>
+    </p>
+
+    <p>Ein Array kann sortiert werden, auch mit einer Sortierfunktion und damit auch zufällig:</p>
+
+    <p class="code">
+        arr.sort(); <span class="comment" id="arr_sort1"></span><br>
+        arr.sort((a, c) => Math.random() - 0.5); <span class="comment" id="arr_sort2"></span><br>
+    </p>
+
+</body>
+
+</html>
