@@ -45,6 +45,8 @@
 
         window.onload = function () {
 
+            "use strict";
+
             let str = "ABCDEFGabcdefg0123467";
             document.getElementById("str_length").innerText = str.length;
             document.getElementById("str_charAt").innerText = str.charAt(2);
@@ -63,6 +65,13 @@
 
             document.getElementById("arr_sort1").innerText = arr.sort();
             document.getElementById("arr_sort2").innerText = arr.sort((a, c) => Math.random() - 0.5);
+
+            // Variablentausch via Destructuring
+            let a = 1;
+            let b = 2;
+            [a, b] = [b, a];
+            console.log(a, b);  // 2 1
+            document.getElementById("tausch_destr").innerText = `${a} ${b}`;
 
         }
 
@@ -112,6 +121,17 @@
     <p class="code">
         arr.sort(); <span class="comment" id="arr_sort1"></span><br>
         arr.sort((a, c) => Math.random() - 0.5); <span class="comment" id="arr_sort2"></span><br>
+    </p>
+
+    <h2>Schnipsel</h2>
+
+    <p>Variablentausch via Destructuring</p>
+
+    <p class="code">
+        let a = 1;<br>
+        let b = 2;<br>
+        [a, b] = [b, a];<br>
+        console.log(a, b); <span class="comment" id="tausch_destr"></span>
     </p>
 
 </body>
