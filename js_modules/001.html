@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My HTML Page</title>
+  </head>
+  <body>
+    <h1>Verwendung von ES6-Modulen in HTML-Dateien.</h1>
+
+    <p>
+      Bitte nicht(!) mit CommonJS verwechseln, siehe
+      <a href="https://www.freecodecamp.org/news/modules-in-javascript/"
+        >https://www.freecodecamp.org/news/modules-in-javascript/</a
+      >. <br />
+      Ein einfaches Beispiel dafür ist in <code>commonjs_example</code> zu
+      finden. Das funkioniert aber so nicht in Browsern, aber in Node.js.<br />
+      Das gibt es auch noch als <code>esmodule_example</code>. Hier habe ich
+      mich entschieden, <code>type:module</code> in der package.json zu
+      verwenden, alternativ hätte man auch die Dateiendung zu
+      <code>.mjs</code> ändern können.
+    </p>
+
+    <p id="result"></p>
+
+    <script type="module">
+      function addLineToResult(name, value) {
+        document.getElementById(
+          "result"
+        ).innerHTML += `${name}: <b>${value}</b><br>`;
+      }
+
+      // importing the default export
+      import add10 from "./modules/module01.js";
+      addLineToResult("01. default", add10(5));
+
+      // feel free to rename the imported function (default)
+      import foobar from "./modules/module01.js";
+      addLineToResult("02. default renamed", foobar(6));
+
+      // That does not work!
+      // SyntaxError: The requested module './modules/module01.js' does not provide an export named 'add10'
+      // import { add10 as barfoo } from "./modules/module01.js";
+      // addLineToResult("02b. default renamed", barfoo(7));
+
+      // no default export
+      import { add20 } from "./modules/module02.js";
+      addLineToResult("03. named", add20(5));
+
+      // no default export, renamed
+      import { add20 as baz } from "./modules/module02.js";
+      addLineToResult("04. named renamed", baz(6));
+
+      // multiple named exports
+      // imported is really only the lowercase function
+      import { lowercase } from "./modules/module03.js";
+      addLineToResult("05. named multiple", lowercase("HELLO"));
+
+      // importing a const
+      import { mod4AnyConst } from "./modules/module04.js";
+      addLineToResult("06. import from another module", mod4AnyConst);
+
+      // importing everything from a module
+      import * as mod05 from "./modules/module05.js";
+      addLineToResult("07a. import everything", mod05.C1);
+      addLineToResult("08b. import everything", mod05.len("foo"));
+    </script>
+  </body>
+</html>
