@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Test Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body,
+      html {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        /* 
+        "flex: 1;" means that the main element
+        uses the remaining space of the viewport,
+        that's why the footer is always at the bottom
+        */
+        flex: 1;
+        border: 1px solid red;
+      }
+
+      header,
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .col-md-2 {
+            display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>header</header>
+    <main>
+        <div class="col-md-2">
+            <section>
+                <h2>Section 1</h2>
+                <p>Content 1</p>
+            </section>
+            <section>
+                <h2>Section 2</h2>
+                <p>Content 2</p>
+        </div>
+    </main>
+    <footer>footer</footer>
+  </body>
+</html>
